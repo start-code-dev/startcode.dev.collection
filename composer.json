@@ -1,0 +1,69 @@
+{
+    "name": "startcode/collection",
+    "description": "collection php library",
+    "keywords": [
+        "collection",
+        "list",
+        "iterator",
+        "countable"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Drasko Gomboc",
+            "email": "drasko.gomboc@gmail.com"
+        },
+        {
+            "name": "Zeljko Simic",
+            "email": "zeljkosbgd@gmail.com"
+        },
+        {
+            "name": "Petar Kapulica",
+            "email": "epkapuleti@gmail.com"
+        },
+        {
+            "name": "Nemanja Mirkov",
+            "email": "mirkovnemanja@gmail.com"
+        },
+        {
+            "name": "Vladan Zoricic",
+            "email": "vladan.zoricic@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Startcode\\Collection\\": "src/"}
+    },
+    "require-dev": {
+        "phpunit/phpunit"           : "8.2.*",
+        "squizlabs/php_codesniffer" : "3.*",
+        "startcode/code-coverage"   : "dev-main"
+    },
+    "require": {
+        "php"                       : ">=7.4",
+        "startcode/value-object"    : "dev-main"
+    },
+    "repositories": [
+        {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.code-coverage.git"},
+        {"type": "git", "url": "https://github.com/start-code-dev/startcode.dev.value-object.git"}
+    ],
+    "scripts": {
+        "unit-test": [
+            "./vendor/bin/phpunit --colors=always -c tests/unit/phpunit.xml --coverage-html tests/unit/coverage"
+        ],
+        "test-coverage": [
+            "./vendor/bin/phpunit --colors=always -c tests/unit/phpunit.xml --coverage-text"
+        ],
+        "test-report": [
+            "./vendor/bin/phpunit --colors=always -c tests/unit/phpunit.xml --coverage-clover=tests/unit/coverage/code-coverage.xml"
+        ],
+        "code-coverage": [
+            "./vendor/bin/code-coverage -p 90 -f tests/unit/coverage/code-coverage.xml"
+        ],
+        "psr2": [
+            "./vendor/bin/phpcs --colors --standard=PSR2 src/"
+        ],
+        "psr2-fix": [
+            "./vendor/bin/phpcbf --colors --standard=PSR2 src/"
+        ]
+    }
+}
