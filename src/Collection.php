@@ -127,7 +127,10 @@ class Collection implements \Iterator, \Countable
         $this->objects[$this->pointer] = $this->factory->reconstitute();
     }
 
-    private function currentRawData() : array
+    /**
+     * @return mixed
+     */
+    private function currentRawData()
     {
         return $this->rawData[$this->keyMap[$this->pointer]];
     }
