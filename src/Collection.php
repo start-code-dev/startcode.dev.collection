@@ -121,6 +121,12 @@ class Collection implements \Iterator, \Countable
         return $this->current() !== null;
     }
 
+    public function last()
+    {
+        $this->factory->set(end($this->rawData));
+        return $this->factory->reconstitute();
+    }
+
     private function addCurrentRawDataToObjects() : void
     {
         $this->factory->set($this->currentRawData());

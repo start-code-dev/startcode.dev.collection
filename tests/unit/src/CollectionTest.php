@@ -119,6 +119,12 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->collection->valid());
     }
 
+    public function testLast()
+    {
+        $object = $this->collection->last();
+        $this->assertEquals($this->getMockForFactoryReconstituteInterface()->reconstitute(), $object);
+    }
+
     private function getMockForFactoryReconstituteInterface()
     {
         $mock = $this->getMockBuilder(ReconstituteInterface::class)
